@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-types */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { MongoClient } = require("mongodb");
 const Db = process.env.ATLAS_URI;
 const client = new MongoClient(Db, {
@@ -5,7 +7,7 @@ const client = new MongoClient(Db, {
   useUnifiedTopology: true,
 });
  
-var _db: any = '';
+let _db: any = '';
  
 const dbo = {
   connectToServer: function (callback: Function) {

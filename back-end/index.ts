@@ -1,9 +1,9 @@
 import express from 'express';
 import "dotenv/config";
 import dbo from './database/connection';
+import cors from "cors"
 
 const app = express();
-const cors = require("cors");
 app.use(cors);
 app.use(express.json());
 
