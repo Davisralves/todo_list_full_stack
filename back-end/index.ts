@@ -4,12 +4,18 @@ import dbo from './database/connection';
 import cors from "cors"
 import { errorHandler } from "./controller/middlewares/errorHandler";
 import createToDoList from './controller/createToDoList';
+import updateList from './controller/updateList';
+
 const app = express();
 app.use(cors());
 app.use(express.json());
 const port = 5000;
 
-app.post('/addList', createToDoList );
+app.get('/list', getList);
+
+app.post('/addList', createToDoList);
+
+app.post('/updateList', updateList );
 
 app.use(errorHandler);
 
