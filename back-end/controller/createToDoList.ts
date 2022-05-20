@@ -7,12 +7,11 @@ const createToDoList = async (
 	next: NextFunction
 ) => {
   try {
-    const { name } = req.params;
-    console.log('foi');
+    const { name } = req.body;
     const response = await ToDoListService.createNewToDoList(name);
-    console.log(response);
-    if(!response) generateError('Server error, can not create a new list', 500);
-    res.status(201).json(response.insertId);
+    console.log('controller Response', response);
+    if(!response) throw generateError('Server error, can not create a new list', 500);
+    res.status(201).json({});
    } catch (error) {
     next(error)
   }

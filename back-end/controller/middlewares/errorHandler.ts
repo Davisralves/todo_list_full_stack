@@ -1,4 +1,4 @@
-import { Request, Response, ErrorRequestHandler } from "express";
+import { Request, Response, NextFunction, ErrorRequestHandler } from "express";
 
 interface error extends ErrorRequestHandler {
   code?: number;
@@ -9,6 +9,7 @@ export const errorHandler = async (
   error: error,
 	_req: Request,
 	res: Response,
+  _next: NextFunction, 
 ) => {
   error.code = error.code || 500;
   error.message = error.message || 'Internal server error';

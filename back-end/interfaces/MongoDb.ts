@@ -1,4 +1,6 @@
 export interface IinsertOne {
-  acknowledged: boolean,
-  insertId: number,
+  CommandResult: {
+    acknowledged: boolean,
+    insertId: number,
+  }
 }
